@@ -6,7 +6,7 @@
 2. Traducir nomenclatura de variables y funciones al inglés.
 3. Organizar las funciones en el modulo tareas para usar en el script principal.
 4. Terminar desarrollo de CRUD (Create Read Update Delete) de tareas.
-5. Guardar y leer la información con un archivo json para que persistan los datos.
+5. Guardar y leer la información con base de datos sqlite3.
 6. Refactorizar para que sea un programa orientado a objetos.
 6. Adaptar programa para usar con interfás gráfica.
 
