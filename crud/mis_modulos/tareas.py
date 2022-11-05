@@ -1,4 +1,4 @@
-tareas = {
+tasks = {
     "opciones":[
         "listar tareas",
         "crear tarea",
@@ -8,6 +8,6 @@ tareas = {
     "lista": (["tarea 1", False],["tarea 2", False],["tarea 3", False])
 }
 
-def mostrar_tarea(tarea):
-    print("Nombre:", tarea[0])
-    print("Estado:", "Completada" if tarea[1] else "Pendiente")
+def show_task(task):
+    print("Nombre:", task[0]) # mostrar el nombre de la tarea (en "lista" es el string, primera posicion)
+    print("Estado:", "Completada" if task[1] else "Pendiente") # mostrar el estado de la tarea, completa si 
