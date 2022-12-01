@@ -8,7 +8,7 @@
 4. Terminar desarrollo de CRUD (Create Read Update Delete) de tareas.
 5. Guardar y leer la información con base de datos sqlite3.
 6. Refactorizar para que sea un programa orientado a objetos.
-6. Adaptar programa para usar con interfás gráfica.
+7. Adaptar programa para usar con interfás gráfica (modulo tkinter).
 
 ## Consigna
 
