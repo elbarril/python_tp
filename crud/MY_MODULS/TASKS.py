@@ -4,14 +4,16 @@ tasks = { # se define la variable (diccionario) "tasks"
         "create task",
         "edit task",
         "delete task"
-    ],
-    "list": [["task 1", False],["task 2", False],["task 3", False]] # se define el atributo (tupla) "lista" con las primeras tareas (listas)
+    ]
+    #"list": [["task 1", False],["task 2", False],["task 3", False]] # se define el atributo (tupla) "lista" con las primeras tareas (listas)
 }
 
 def show_task(task):
+    print("ID:", task[2])
     print("Name:", task[0]) # mostrar el nombre de la tarea (en "lista" es el string, primera posicion)
-    print("Status:", "Complete" if task[1] else "Pending") # mostrar el estado de la tarea, completa si 
+    print("Complete?", task[1]) # mostrar el estado de la tarea, completa si 
 
 def show_deleted_task(task):
+    print("ID:", task[2])
     print("Deleted task name:", task[0])
-    print("Deleted task status:", "Complete" if task[1] else "Pending")
+    print("Deleted task status:", "Complete?", task[1])

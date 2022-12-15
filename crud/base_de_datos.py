@@ -26,27 +26,19 @@ def show_chosen_option(chosen_option):
 
 def Execute_option(chosen_option):
     if chosen_option == "1":
-        status_task = True if cursor.execute("SELECT id FROM opcionesytareas") == 1 else False
         cursor.execute("SELECT id, nameoftask, status FROM opcionesytareas")
         opcionesytareas = cursor.fetchall()
         for opandtasks in opcionesytareas:
             print(opandtasks)
-        connection.commit()
             
     elif chosen_option == "2":
         name_new_task = input("Enter name of task: ")
         new_task = [name_new_task, False]
-        list_of_tasks = tasks["list"]
-        for id_task in range(len(list_of_tasks)):
-            status_task = True if cursor.execute("SELECT id FROM opcionesytareas") == 1 else False
-        print(cursor.execute(f"""INSERT INTO opcionesytareas (nameoftask,status) VALUES('{name_new_task}','{status_task}')""").lastrowid)
-        last_id = cursor.execute("SELECT id, nameoftask, status FROM opcionesytareas").lastrowid
-        option_two = cursor.execute(f"""SELECT id, nameoftask, status FROM opcionesytareas WHERE id={last_id}""")
+        status = False
+        new_task_id = cursor.execute(f"""INSERT INTO opcionesytareas (nameoftask,status) VALUES('{name_new_task}','{status_task}')""").lastrowid
         print("\n===================\n")
         print("New task")
-        opcionesytareas = cursor.fetchall()
-        for option_two in opcionesytareas:
-            print(option_two)
+        show_task([name_new_task, status_task, new_task_id])
         connection.commit()
         
 
@@ -56,15 +48,18 @@ def Execute_option(chosen_option):
         is_complete = True if input("Complete task? (yes/no): ").lower() == 'yes' else False
         cursor.execute(f"""UPDATE opcionesytareas SET nameoftask='{new_task_name}',status='{is_complete}' WHERE id={id_task_to_edit}""")
         print("\n===================\n") 
-        print("Updated task") 
+        print("Updated task")
+        show_task(new_task_name,is_complete, id_task_to_edit)
         connection.commit()
 
         
     elif chosen_option == "4":
         id_task_to_delete = int(input("Enter ID of the task to delete: "))
+        task_to_delete = cursor.execute(f"""SELECT nameoftask,status FROM opcionesytareas WHERE id={id_task_to_delete}""").fetchall()
         cursor.execute(f"""DELETE FROM opcionesytareas WHERE id={id_task_to_delete}""")
         print("\n===================\n")
         print("Updated list")
+        show_deleted_task(task_to_delete[0], task_to_delete[1], id_task_to_delete)
         connection.commit()
 
 def RUNprogram(initiated = False):
