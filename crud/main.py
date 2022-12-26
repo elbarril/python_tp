@@ -1,9 +1,4 @@
-from controller.Controller import Controller
+from controller.App import App
 
-controller = Controller()
-
-controller.addTask()
-controller.modifTask()
-controller.deleteTask()
-controller.loadTasks()
-controller.showTasks()
+app = App()
+app.run()
