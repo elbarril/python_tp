@@ -18,3 +18,7 @@ Crear un videojuego con todo lo aprendido en Python adaptando uno de los cuentos
 - Modelar el programa con diagrame de clases y casos de uso.
 - Desarrollar notebooks con la estructura del programa y las clases que se van a usar.
 - Desarrollar versión 0 con las funcionalidades mínimas para poder jugar.
+
+## Crear ejecutable .exe
+1. pip install pyinstaller
+2. pyinstaller --onefile name.py
